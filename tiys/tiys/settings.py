@@ -4,12 +4,19 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'n#vj7@y7mctvmqbc$@uu#vf2q=-p8!ege9#7zu&gbr(68f@fz4')
+# Production setting - run py manage.py collectstatic
 
-DEBUG = False
+# SECRET_KEY = os.environ.get('SECRET_KEY', 'n#vj7@y7mctvmqbc$@uu#vf2q=-p8!ege9#7zu&gbr(68f@fz4')
+#
+# DEBUG = False
+#
+# ALLOWED_HOSTS = ['127.0.0.1']
 
-ALLOWED_HOSTS = ['127.0.0.1']
+SECRET_KEY = 'n#vj7@y7mctvmqbc$@uu#vf2q=-p8!ege9#7zu&gbr(68f@fz4'
 
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -18,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pages.apps.PagesConfig',
 ]
 
 MIDDLEWARE = [

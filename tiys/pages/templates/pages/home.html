@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TIYS | The Indian Youtubers </title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'pages/css/main.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'pages/css/home-page.css' %}">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Goldman:wght@400;700&family=Monoton&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/de12b7a1e9.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        {% include 'navbar.html' %}
+        <div class="header-hero">
+             <div class="header-hero-left">
+                <img src="{% static 'pages/images/home-hero.png' %}" alt="" >
+             </div>
+             <div class="header-hero-right">
+                <h1>Welcome to TIYS</h1>
+                 <h3>The places to find all The Indian Youtubers</h3>
+             </div>
+        </div>
+    </div>
+
+    <div class="about">
+        <div class="about-left">
+            <img src="{% static 'pages/images/home-about.png' %}" alt="" >
+        </div>
+        <div class="about-right">
+            <h1>About us</h1>
+            <p>Youtube has been there for quite a long time in India, but gained more interest after the internet boom in recent couple of years, this created a large audience base of YouTube in India.
+            This also created an opportunity for some people among the audience to showcase their knowledge, creativity and talent with others and thus making them a content creator.
+            Through recent years many creators have established themselves on YouTube by providing amazing content.</p>
+
+            <a href="">Know More....</a>
+        </div>
+    </div>
+
+    <div class="count">
+        <div class="count-item">
+            <div class="count-item-number">{{ channel_category_count }}</div>
+            <div class="count-item-title">Channel Category</div>
+        </div>
+        <div class="count-item">
+            <div class="count-item-number">{{ subscriber_category_count }}</div>
+            <div class="count-item-title">Subscriber Category</div>
+        </div>
+        <div class="count-item">
+            <div class="count-item-number">{{ youtuber_count }}</div>
+            <div class="count-item-title">Youtuber Profile</div>
+        </div>
+        <div class="count-item">
+            <div class="count-item-number">{{ channel_count }}</div>
+            <div class="count-item-title">Channel Profile</div>
+        </div>
+    </div>
+
+    <div class="profile">
+        <div class="profile-title">
+            <h1>PROFILE PAGES</h1>
+        </div>
+        <div class="profile_type">
+            <div class="profile_type_yt">
+                <a href="">Youtuber's</a>
+            </div>
+            <div class="profile_type_ch">
+                <a href="">Channel's</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="top">
+        <div class="top-left">
+            <div class="top-left-a">TOP</div>
+            <div class="top-left-b">5</div>
+        </div>
+        <div class="top-right">
+            <h1>Youtubers</h1>
+            <a href="">Checkout!</a>
+        </div>
+    </div>
+
+    <div class="submit">
+        <h1>Are you an Indian Youtubers or owns a Channel.??</h1>
+        <h5>Submit your details now and get a webpage on our website</h5>
+        <a href="">Submit Now</a>
+    </div>
+
+    {% include 'footer.html' %}
+</div>
+</body>
+</html>

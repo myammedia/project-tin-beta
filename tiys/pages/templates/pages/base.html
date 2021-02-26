@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TIYS | {% block title %}{% endblock %}  </title>
+    {% block meta %}{% endblock %}
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'pages/css/main.css' %}">
+    {% block css %}
+
+    {% endblock %}
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Goldman:wght@400;700&family=Monoton&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/de12b7a1e9.js"></script>
+    {% block script %}
+
+    {% endblock %}
+
+
+</head>
+<body>
+<div class="container">
+    {% include 'navbar.html' %}
+    {% block content %} {% endblock %}
+    {% include 'footer.html' %}
+</div>
+{% block bodyscript %} {% endblock %}
+</body>
+</html>
