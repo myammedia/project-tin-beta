@@ -1,0 +1,29 @@
+.faq{
+margin: 10%;
+box-shadow: 1px 1px 10px black;
+}
+
+.faq-title {
+  background-color: rgb(83,82,238);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: double;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+.active, .faq-title:hover {
+  background-color: rgb(120,130,243);
+}
+
+.faq-description {
+  padding: 18px;
+  display: none;
+  background-color: rgb(120,130,243);
+  overflow: hidden;
+}

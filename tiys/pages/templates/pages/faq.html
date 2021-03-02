@@ -1,0 +1,48 @@
+{% extends "pages/base.html" %}
+{% block title %} F.A.Q {% endblock %}
+{% block css %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pages/css/faq-page.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="faq">
+        {% for faq in faq_list %}
+
+        <button class="faq-title">
+            {{faq.title}}
+        </button>
+        <div class="faq-description">
+            {{faq.description}}
+        </div>
+        {% endfor %}
+
+
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block bodyscript %}
+<script>
+var acc = document.getElementsByClassName("faq-title");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+{% endblock %}

@@ -9,3 +9,12 @@ class Submit(models.Model):
 
     def __str__(self):
         return self.channel_name
+
+
+class Faq(models.Model):
+    title = models.CharField(max_length=150)
+    description = models.TextField(max_length=300)
+    date = models.DateField(default=now, )
+
+    def __str__(self):
+        return self.title

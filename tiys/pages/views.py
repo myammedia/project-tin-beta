@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Faq
 from .forms import SubmitForm
 
 
@@ -45,5 +46,13 @@ def submit(request):
 
     context = {'form': form}
     template = 'pages/submit.html'
+
+    return render(request, template, context)
+
+
+def faq(request):
+    faq_list = Faq.objects.order_by('date')
+    context = {'faq_list': faq_list}
+    template = 'pages/faq.html'
 
     return render(request, template, context)
