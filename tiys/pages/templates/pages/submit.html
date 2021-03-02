@@ -1,0 +1,59 @@
+{% extends "pages/base.html" %}
+{% block title %} Submit Details {% endblock %}
+{% block css %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pages/css/submit-page.css' %}">
+
+
+{% endblock %}
+{% block content %}
+<div class="main">
+<!--breadcrumbs-->
+    <ul class="breadcrumb">
+        <li><a href="{% url 'homepage' %}">Home</a></li>
+        <li>Submit Details</li>
+    </ul>
+<!--end breadcrumbs-->
+<!--Submit Page title-->
+<div class="submit-page-title">
+    <h1>Submit your Channel Details</h1>
+</div>
+<!--End Page Submit title-->
+<!--Submit Page Description-->
+<div class="submit-page-description">
+        <h3>Things to keeps in mind before Submitting the Details</h3>
+    <ul>
+        <li>Only those information's which is present on your channel will be added.</li>
+        <li>Make sure following details are present on your channel description for addition on your webpage.
+            <ul>
+                <li>Channel Owner Name</li>
+                <li>Channel Owner Image</li>
+                <li>Instagram page link</li>
+                <li>Twitter page link</li>
+                <li>Facebook page link</li>
+                <li>Website/Blog link</li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+    <hr>
+<!--End Submit Page Description-->
+<!--submit form-->
+<div class="submit-form-container">
+    <form action="" method="post" class="submit-form">
+        {% csrf_token %}
+        <label for="id_channel_name">Channel Name:</label>
+        <input type="text" id="id_channel_name" name="channel_name" placeholder="Enter your channel name..">
+
+        <label for="id_channel_name">Youtube URL:</label>
+        <input type="text" id="id_youtube_url" name="youtube_url" placeholder="Paste your channel url..">
+
+        <input type="submit" value="Submit">
+  </form>
+</div>
+<!--end submit form-->
+</div>
+
+{% endblock %}

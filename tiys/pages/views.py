@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import SubmitForm
 
 
 def index(request):
@@ -34,3 +35,15 @@ def terms(request):
 
     return render(request, template)
 
+
+def submit(request):
+    form = SubmitForm(request.POST)
+    if request.method == 'POST':
+        form = SubmitForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
+    template = 'pages/submit.html'
+
+    return render(request, template, context)
