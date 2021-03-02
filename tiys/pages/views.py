@@ -21,3 +21,10 @@ def contact(request):
     template = 'pages/contact.html'
 
     return render(request, template)
+
+
+def privacy(request):
+    template = 'pages/privacy.html'
+
+    return render(request, template)
+
