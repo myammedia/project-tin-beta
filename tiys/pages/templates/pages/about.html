@@ -1,0 +1,74 @@
+{% extends "pages/base.html" %}
+{% block title %} About Us {% endblock %}
+{% block css %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pages/css/about-page.css' %}">
+
+
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <!--breadcrumbs-->
+    <ul class="breadcrumb">
+        <li><a href="{% url 'homepage' %}">Home</a></li>
+        <li>About Us</li>
+    </ul>
+<!--end breadcrumbs-->
+<!--about Page title-->
+    <div class="about-title">
+        <h1>About Us</h1>
+    </div>
+<!--End about page title-->
+<!--about page content-->
+    <div class="about-content">
+        <p>Youtube has been there for quite a long time in India, but gained more interest after the internet boom in recent couple of years, this created a large audience base of YouTube in India.
+            This also created an opportunity for some people among the audience to showcase their knowledge, creativity and talent with others and thus making them a content creator.
+            Through recent years many creators have established themselves on YouTube by providing amazing content.
+            The number of content creators and channels is very large in number and it is hard to know each and every indian content creator or channel.
+            The main goal of this website is to collect and provide information and details about all the content creators of YouTube India in one place and proudly recognize all of them as "The Indian Youtubers" aka TIYS! </p>
+        <p>On  tiys.in website you will find web pages containing details of indian youtubers and channels. Since there are numerous indian youtubers and channels, Hence In order to diversify creator or channel specifically, all the channels webpages are specified in two categories
+        </p>
+        <ol>
+            <li>Based on channel category</li>
+            <li>Based on the subscriber count category</li>
+        </ol>
+        <p>The channel categories we are as follows-</p>
+            <ol>
+                {% for category in category_list %}
+                <li>{{category.name}}</li>
+            {% endfor %}
+            </ol>
+
+        <p>The subscriber count categories we are as follows-</p>
+            <ul>
+                {% for subs in subscriber_list %}
+                <li>{{subs.name}}</li>
+            {% endfor %}
+            </ul>
+        <p>Every youtuber or channel will have a separate webpage on their channel name containing following details-
+        </p>
+        <ol>
+            <li>Channel name</li>
+            <li>Channel owner name</li>
+            <li>Individual channel owner picture</li>
+            <li>Subscriber count</li>
+            <li>Total views</li>
+            <li>Total videos</li>
+            <li>Date of joining youtube</li>
+            <li>1st video upload date</li>
+            <li>Link to your Youtube Channel </li>
+            <li>Link to your Instagram account</li>
+            <li>Link to your Twitter page</li>
+            <li>Link to your Facebook page</li>
+            <li>Link to your Website/Blog</li>
+        </ol>
+        <p>Details like subscriber count, total views, total videos will be updated on a regular basis.</p>
+        <p>Every creator is valuable for their amazing contribution to the community, so on this website  you will find detailed and dedicated webpage of  every indian youtuber or channels having subscriber count 10k and below, all the way up to 10M subscribers and above.</p>
+        <p>Diversifying creators and channels on the basis of channel category and subscribers count allows more than fifty groups. This number is quite large, so we thought maybe we can analyze details and provide the audience with detail, who are the top creators or channels of  a particular category. This top list of creators and channels will be published regularly on our website Top 5 page. These Top 5 lists will also be published on our youtube channel in a fun and amazing way.</p>
+        <p>These are a few initial steps from us to bring together all the indian youtubers and channels and recognize them for their valuable content.</p>
+        <p>So if you are a indian youtuber or own a channel join now and become a part of the TIYS community</p>
+    </div>
+</div>
+{% endblock %}
