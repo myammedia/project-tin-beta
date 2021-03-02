@@ -1,0 +1,33 @@
+{% extends "pages/base.html" %}
+{% block title %} Contact Us {% endblock %}
+{% block css %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pages/css/contact-page.css' %}">
+
+
+{% endblock %}
+
+{% block content %}
+<div class="main">
+<!--breadcrumbs-->
+    <ul class="breadcrumb">
+        <li><a href="{% url 'homepage' %}">Home</a></li>
+        <li>Contact Us</li>
+    </ul>
+<!--end breadcrumbs-->
+<div class="contact">
+    <div class="contact-left">
+    <h1>Contact Us</h1>
+    <h3>Communication is the best way to transfer information .
+        It also helps to improve the accuracy of information’s data which is a must for creating best quality content.</h3>
+    <h3>For any suggestions, feedback and any other queries:- </h3>
+    <h4>e-mail : info@tiys.in</h4>
+    <h5>You can also contact via our social media. links below!</h5>
+    </div>
+    <div class="contact-right">
+    <img src="{% static 'pages/images/contact.png' %}" alt="" >
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+.contact{
+display:flex;
+padding: 5%;
+flex-direction: row;
+}
+
+.contact h1{
+    font-family: 'Goldman', cursive;
+}
+@media (max-width: 768px){
+.contact{
+flex-direction: column;}
+.contact-right img{
+width: 90%;
+height: 100%;
+}
+}
