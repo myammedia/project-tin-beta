@@ -1,0 +1,15 @@
+
+.terms-title{
+    margin: 5%;
+	text-align: center;
+	font-family: 'Goldman', cursive;
+}
+.terms-content{
+	margin: 5%;
+	padding: 5%;
+	text-align: justify;
+	background: linear-gradient(90deg, rgb(120,130,243), rgb(83,82,238));
+}
+.terms-content h2{
+	color: orange;
+}

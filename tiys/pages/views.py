@@ -28,3 +28,9 @@ def privacy(request):
 
     return render(request, template)
 
+
+def terms(request):
+    template = 'pages/terms.html'
+
+    return render(request, template)
+
