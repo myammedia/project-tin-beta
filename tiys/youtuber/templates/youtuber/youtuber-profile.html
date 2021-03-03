@@ -1,0 +1,140 @@
+{% extends "youtuber/base.html" %}
+{% block title %} {{youtuber.channel_name}} | {{youtuber.channel_category}} | Youtuber {% endblock %}
+
+{% block meta %}
+<meta name="Keywords" content="indian {{youtuber.channel_category}} youtube channel, indian {{youtuber.channel_category}} youtubers, {{youtuber.channel_name}}, tiys, the indian youtubers">
+<meta name="description" content="On this page you will find info of {{youtuber.channel_category}} youtubers {{youtuber.channel_name}}">
+{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/youtuber-profile.css' %}">
+ {% if channel_category.slug == "auto-and-vehicle" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/auto-vehicle.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "beauty-and-fashion" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/beauty.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "comedy" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/comedy.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "entertainment" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/entertainment.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "family-entertainment" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/family.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "food" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/food.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "gaming" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/gaming.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "kids" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/kids.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "music-and-dance" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/music.css' %}">
+    {% endif %}
+{% endblock %}
+{% block content %}
+<!--main-->
+<div class="main">
+<!--breadcrumbs-->
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'youtuber-index'%}">Youtuber</a></li>
+            <li><a href="{% url 'youtuber-subscat-list' channel_category.slug %}">{{youtuber.channel_category}}</a></li>
+            <li><a href="{% url 'youtuber-list' channel_category.slug subscriber_category.slug %}">{{youtuber.subscriber_category}}</a></li>
+            <li>{{youtuber.channel_name}}</li>
+        </ul>
+<!--end breadcrumbs-->
+<!--youtuber profile-->
+    <div class="youtuber-profile">
+        <!--youtuber profile left-->
+        <div class="youtuber-profile-left">
+            {% if youtuber.channel_category.image_svg %}
+            <img src="{{youtuber.channel_category.image_svg.url}}" alt="" >
+            {% else %}
+            <img src="{% static 'youtuber/images/youtuber-category-image.svg' %}" alt="">
+            {% endif %}
+        </div>
+        <!-- end youtuber profile left-->
+        <!--youtuber profile right-->
+        <div class="youtuber-profile-right">
+            <!-- youtuber profile right top-->
+            <div class="youtuber-profile-right-top">
+                 <!-- youtuber profile right data-->
+                    <div class="youtuber-profile-right-data">
+                        <h1>{{youtuber.channel_name}}</h1>
+                        <h4>Category - {{youtuber.channel_category}}</h4>
+                        <h3>Subscribers - {{subsdata.total_subs}} {{subsdata.subs_abbr}}</h3>
+                        <h3>Total Videos - {{subsdata.total_videos}}</h3>
+                        <h3>Total Views - {{subsdata.total_views}}</h3>
+                        <h6>Last Updated On - {{subsdata.update_date}}</h6>
+                    </div>
+            <!-- end youtuber profile right data-->
+            <!-- youtuber profile right image-->
+                    <div class="youtuber-profile-right-image">
+                        {% if youtuber.image %}
+                            <img src="{{youtuber.image.url}}" alt="">
+                        {% endif %}
+
+                    </div>
+            <!-- end youtuber profile right image-->
+            </div>
+            <!--end youtuber profile right top-->
+
+
+            <!-- youtuber profile right bottom-->
+            <div class="youtuber-profile-right-bottom">
+                 <!--youtuber profile social-->
+                    <div class="youtuber-profile-social">
+
+                                    <a href="" class="youtuber-yt-btn"><i class="fab fa-youtube"></i></a>
+                                    <a href="" class="youtuber-ig-btn"><i class="fab fa-instagram"></i></a>
+                                    <a href="" class="youtuber-tw-btn"><i class="fab fa-twitter"></i></a>
+                                    <a href="" class="youtuber-fb-btn"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="" class="youtuber-wb-btn"><i class="fas fa-globe-asia"></i></a>
+
+                    </div>
+                <!-- end youtuber profile social-->
+            </div>
+            <!--end youtuber profile right bottom-->
+        </div>
+        <!--end youtuber profile right-->
+
+    </div>
+<!--end youtuber profile -->
+<!--youtuber profile other-->
+<div class="youtuber-profile-other">
+    <!--youtuber profile other left-->
+    <div class="youtuber-profile-other-left">
+        <h1>ADV</h1>
+    </div>
+    <!--end youtuber profile other left-->
+    <!--youtuber profile other right-->
+    <div class="youtuber-profile-other-right">
+        <div class="youtuber-profile-other-data">
+            <div>
+                <h3>Channel Owner Name</h3>
+                <h5>Date of Joining - </h5>
+                <h5>1st video upload date - </h5>
+                <h5></h5>
+            </div>
+
+        </div>
+    </div>
+    <!--end youtuber profile other right-->
+</div>
+<!-- end youtuber profile other-->
+</div>
+<!--end main-->
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+body{
+    color: white;
+    background:linear-gradient(125deg, #FF0000, #33FF00, #0033FF );
+				  background-size: 600% 600%;
+				animation: animate 8s infinite;
+}
+
+@keyframes animate{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+.navbar{
+    background: linear-gradient(90deg, #33FF00, #0033FF);
+    box-shadow: 1px 1px 5px black;
+}
+
+
+
+ul.breadcrumb li {
+    color: white;
+}
+
+ul.breadcrumb li a {
+    color: darkslategray;
+}
+
+.youtuber-profile-data h6{
+    color: orange;
+}
+
+.youtuber-detail-other-left{
+   background-color: #33FF00;
+}
+
+.youtuber-profile-other-right{
+    background-color: #0033FF;
+}
+
+.subfooter-left{
+   background-color: #33FF00;
+}
+
+
+.subfooter-right{
+    background-color: #0033FF;
+ }
+
+
+.subfooter-right a:hover{
+    color: darkslategray;
+    border-bottom: 3px solid darkslategray;
+}
+.footer-copyright{
+color: black;
+     background:linear-gradient(90deg, #33FF00, #0033FF);
+}
+
