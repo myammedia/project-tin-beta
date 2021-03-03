@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from category.models import Channel, Subscriber
+from .models import Profile, Subsdata
 
 
 def index(request):
@@ -25,5 +26,17 @@ def youtuber_list_view(request, channel_category, subscriber_category):
     context = {'channel_category': channel_category, 'subscriber_category': subscriber_category,
                'youtuber_list': youtuber_list}
     template = 'youtuber/youtuber-list.html'
+
+    return render(request, template, context)
+
+
+def youtuber_profile_view(request, channel_category, subscriber_category, slug):
+    youtuber = Profile.objects.get(slug=slug)
+    channel_category = Channel.objects.get(slug=channel_category)
+    subscriber_category = Subscriber.objects.get(slug=subscriber_category)
+    subsdata = Subsdata.objects.filter(profile_subsdata__slug=slug).last()
+    context = {'channel_category': channel_category, 'subscriber_category': subscriber_category,
+               'youtuber': youtuber, 'subsdata': subsdata}
+    template = 'youtuber/youtuber-profile.html'
 
     return render(request, template, context)
