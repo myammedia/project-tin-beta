@@ -1,21 +1,25 @@
 from django.shortcuts import render
+from category.models import Channel, Subscriber
 from .models import Faq
 from .forms import SubmitForm
 
 
 def index(request):
+    channel_category_count = Channel.objects.count()
+    subscriber_category_count = Subscriber.objects.count()
+    context = {'channel_category_count': channel_category_count, 'subscriber_category_count': subscriber_category_count}
     template = 'pages/home.html'
 
-    return render(request, template)
+    return render(request, template, context)
 
 
 def about(request):
-    # category_list = Channel.objects.order_by('name')
-    # subscriber_list = Subscriber.objects.all()
-    # context = {'category_list': category_list, 'subscriber_list': subscriber_list}
+    category_list = Channel.objects.order_by('name')
+    subscriber_list = Subscriber.objects.all()
+    context = {'category_list': category_list, 'subscriber_list': subscriber_list}
     template = 'pages/about.html'
 
-    return render(request, template)
+    return render(request, template, context)
 
 
 def contact(request):
