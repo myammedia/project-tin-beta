@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
     'category.apps.CategoryConfig',
+    'youtuber.apps.YoutuberConfig',
 ]
 
 MIDDLEWARE = [
