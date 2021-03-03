@@ -7,4 +7,6 @@ urlpatterns = [
     path('<slug:slug>/', views.subscat_list_view, name="youtuber-subscat-list"),
     path('<slug:channel_category>/<slug:subscriber_category>/', views.youtuber_list_view,
          name="youtuber-list"),
+    path('<slug:channel_category>/<slug:subscriber_category>/<slug:slug>',
+         views.youtuber_profile_view, name="youtuber-profile")
 ]
