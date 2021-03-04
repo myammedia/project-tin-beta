@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'category.apps.CategoryConfig',
     'youtuber.apps.YoutuberConfig',
+    'channel.apps.ChannelConfig',
 ]
 
 MIDDLEWARE = [
