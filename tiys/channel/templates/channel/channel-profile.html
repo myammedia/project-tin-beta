@@ -1,0 +1,140 @@
+{% extends "channel/base.html" %}
+{% block title %} {{channel.channel_name}} | {{channel.channel_category}} | Channels {% endblock %}
+
+{% block meta %}
+<meta name="Keywords" content="indian {{youtuber.channel_category}} youtube channel, {{youtuber.channel_name}}, tiys, the indian youtubers">
+<meta name="description" content="On this page you will find info of {{youtuber.channel_category}} youtube channel {{youtuber.channel_name}}">
+{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'channel/css/channel-profile.css' %}">
+     {% if channel_category.slug == "auto-and-vehicle" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'channel/css/category/auto-vehicle.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "beauty-and-fashion" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'channel/css/category/beauty.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "comedy" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'channel/css/category/comedy.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "entertainment" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'channel/css/category/entertainment.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "family-entertainment" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'channel/css/category/family.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "food" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'channel/css/category/food.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "gaming" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'channel/css/category/gaming.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "kids" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'channel/css/category/kids.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "music-and-dance" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'channel/css/category/music.css' %}">
+    {% endif %}
+{% endblock %}
+{% block content %}
+<!--main-->
+<div class="main">
+<!--breadcrumbs-->
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'channel-index'%}">Channel</a></li>
+            <li><a href="{% url 'channel-subscat-list' channel_category.slug %}">{{channel.channel_category}}</a></li>
+            <li><a href="{% url 'channel-list' channel_category.slug subscriber_category.slug %}">{{channel.subscriber_category}}</a></li>
+            <li>{{channel.channel_name}}</li>
+        </ul>
+<!--end breadcrumbs-->
+<!--channel profile-->
+    <div class="channel-profile">
+        <!--channel profile left-->
+        <div class="channel-profile-left">
+            {% if channel.channel_category.image_svg %}
+            <img src="{{channel.channel_category.image_svg.url}}" alt="" >
+            {% else %}
+            <img src="{% static 'channel/images/channel-category-image.svg' %}" alt="">
+            {% endif %}
+        </div>
+        <!-- end channel profile left-->
+        <!--channel profile right-->
+        <div class="channel-profile-right">
+            <!-- channel profile right top-->
+            <div class="channel-profile-right-top">
+                 <!-- channel profile right data-->
+                    <div class="channel-profile-right-data">
+                        <h1>{{channel.channel_name}}</h1>
+                        <h4>Category - {{channel.channel_category}}</h4>
+                        <h3>Subscribers - {{subsdata.total_subs}} {{subsdata.subs_abbr}}</h3>
+                        <h3>Total Videos - {{subsdata.total_videos}}</h3>
+                        <h3>Total Views - {{subsdata.total_views}}</h3>
+                        <h6>Last Updated On -</h6>
+                    </div>
+            <!-- end channel profile right data-->
+            <!-- channel profile right image-->
+                    <div class="channel-profile-right-image">
+                        {% if channel.image %}
+                            <img src="{{channel.image.url}}" alt="">
+                        {% endif %}
+
+                    </div>
+            <!-- end channel profile right image-->
+            </div>
+            <!--end channel profile right top-->
+
+
+            <!-- channel profile right bottom-->
+            <div class="channel-profile-right-bottom">
+                 <!--channel profile social-->
+                    <div class="channel-profile-social">
+
+                                    <a href="" class="channel-yt-btn"><i class="fab fa-youtube"></i></a>
+                                    <a href="" class="channel-ig-btn"><i class="fab fa-instagram"></i></a>
+                                    <a href="" class="channel-tw-btn"><i class="fab fa-twitter"></i></a>
+                                    <a href="" class="channel-fb-btn"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="" class="channel-wb-btn"><i class="fas fa-globe-asia"></i></a>
+
+                    </div>
+                <!-- end channel profile social-->
+            </div>
+            <!--end channel profile right bottom-->
+        </div>
+        <!--end channel profile right-->
+
+    </div>
+<!--end channel profile -->
+<!--channel profile other-->
+<div class="channel-profile-other">
+    <!--channel profile other left-->
+    <div class="channel-profile-other-left">
+        <h1>ADV</h1>
+    </div>
+    <!--end channel profile other left-->
+    <!--channel profile other right-->
+    <div class="channel-profile-other-right">
+        <div class="channel-profile-other-data">
+            <div>
+                <h3>Channel Owner Name</h3>
+                <h5>Date of Joining - </h5>
+                <h5>1st video upload date - </h5>
+                <h5></h5>
+            </div>
+
+        </div>
+    </div>
+    <!--end channel profile other right-->
+</div>
+<!-- end channel profile other-->
+</div>
+<!--end main-->
+{% endblock %}
+
+
+
+
+
+
+
