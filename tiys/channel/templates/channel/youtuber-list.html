@@ -1,0 +1,177 @@
+{% extends "youtuber/base.html" %}
+{% block title %} {{subscriber_category.name}} | {{channel_category.name}} | Youtuber {% endblock %}
+
+{% block meta %}
+<meta name="Keywords" content="tiys, the indian youtubers
+                               indian {{youtuber.channel_category}} youtubers,
+                               indian {{youtuber.channel_category}} youtube channel,
+                               indian {{youtuber.channel_category}} youtube channel with {{subscriber_category.name}} subscriber ,
+                               indian {{youtuber.channel_category}} youtubers with {{subscriber_category.name}} subscriber ,
+                               list of indian {{youtuber.channel_category}} youtube channels,
+                               list of indian {{youtuber.channel_category}} youtubers">
+<meta name="description" content="On this page you will find list of {{youtuber.channel_category}} youtubers with {{subscriber_category.name}} subscriber count">
+{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/youtuber-list.css' %}">
+ {% if channel_category.slug == "auto-and-vehicle" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/auto-vehicle.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "beauty-and-fashion" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/beauty.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "comedy" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/comedy.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "entertainment" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/entertainment.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "family-entertainment" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/family.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "food" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/food.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "gaming" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/gaming.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "kids" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/kids.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "music-and-dance" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'youtuber/css/category/music.css' %}">
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="main">
+<!--breadcrumbs-->
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="{% url 'youtuber-index' %}">Youtuber</a></li>
+        <li><a href="{% url 'youtuber-subscat-list' channel_category.slug %}">{{channel_category.name}}</a></li>
+        <li>{{subscriber_category.name}}</li>
+
+    </ul>
+<!--end breadcrumbs-->
+<!--category title-->
+    <div class="category-title">
+        {% if subscriber_category.slug == "10-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers above 10 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "9-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 9 Million - 10 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "8-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 8 Million - 9 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "7-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 7 Million - 8 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "6-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 6 Million - 7 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "5-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 5 Million - 6 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "4-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 4 Million - 5 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "3-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 3 Million - 4 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "2-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 2 Million - 3 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "1-million" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 1 Million - 2 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "900k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 900K - 1 Million</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "800k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 800K - 900K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "700k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 700K - 800K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "600k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 600K - 700K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "500k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 500K - 600K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "400k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 400K - 500K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "300k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 300K - 400K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "200k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 200K - 300K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "100k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 100K - 200K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "90k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 90K - 100K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "80k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 80K - 90K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "70k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 70K - 80K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "60k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 60K - 70K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "50k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 50K - 60K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "40k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 40K - 50K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "30k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 30K - 40K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "20k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 20K - 30K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "10k" %}
+        <h1 class="m-5"> Youtubers with Subscribers between 10K - 20K</h1>
+        {% endif %}
+        {% if subscriber_category.slug == "under-10k" %}
+        <h1 class="m-5"> Youtubers with Subscribers under 10K</h1>
+        {% endif %}
+
+    </div>
+<!-- end category title-->
+<!--youtuber list-->
+<div class="youtuber-list">
+    {% for youtuber in youtuber_list %}
+
+
+                  <a href="{% url 'youtuber-profile' channel_category.slug subscriber_category.slug youtuber.slug %}">
+                      <div class="youtuber-card">
+                      {% if youtuber.image %}
+                         <img src="{{ youtuber.image.url }}" alt="{{youtuber.slug}}">
+                       {% else %}
+                          <img src="{% static 'youtuber/images/1482937747.png' %}" alt="">
+                      {% endif %}
+                     <h1>{{youtuber.channel_name}}</h1>
+                           </div>
+                  </a>
+
+
+    {% empty %}
+          <div class="empty-list">
+              <h1>OOPs! No Youtubers on this criteria</h1>
+          </div>
+    {% endfor %}
+</div>
+<!--end youtuber list-->
+</div>
+
+{% endblock %}
+
