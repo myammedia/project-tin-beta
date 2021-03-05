@@ -16,3 +16,15 @@ def subscat_list_view(request, slug):
     template = "channel/channel-subscat.html"
 
     return render(request, template, context)
+
+
+def channel_list_view(request, channel_category, subscriber_category):
+    channel_category = Channel.objects.get(slug=channel_category)
+    subscriber_category = Subscriber.objects.get(slug=subscriber_category)
+    channel_list = ChannelProfile.objects.filter(channel_category=channel_category,
+                                                 subscriber_category=subscriber_category)
+    context = {'channel_category': channel_category, 'subscriber_category': subscriber_category,
+               'channel_list': channel_list}
+    template = 'channel/channel-list.html'
+
+    return render(request, template, context)
