@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from category.models import Channel, Subscriber
+from .models import ChannelProfile, Subsdata
 
 
 def index(request):
@@ -26,5 +27,17 @@ def channel_list_view(request, channel_category, subscriber_category):
     context = {'channel_category': channel_category, 'subscriber_category': subscriber_category,
                'channel_list': channel_list}
     template = 'channel/channel-list.html'
+
+    return render(request, template, context)
+
+
+def channel_profile_view(request, channel_category, subscriber_category, slug):
+    channel = ChannelProfile.objects.get(slug=slug)
+    channel_category = Channel.objects.get(slug=channel_category)
+    subscriber_category = Subscriber.objects.get(slug=subscriber_category)
+    subsdata = Subsdata.objects.filter(profile_subsdata__slug=slug).last()
+    context = {'channel_category': channel_category, 'subscriber_category': subscriber_category,
+               'channel': channel, 'subsdata': subsdata}
+    template = 'channel/channel-profile.html'
 
     return render(request, template, context)
