@@ -1,0 +1,72 @@
+{% extends "top_five/base.html" %}
+{% block title %} Top 5 Youtuber{% endblock %}
+
+{% block meta %}
+<meta name="Keywords" content="top 5 indian youtubers">
+<meta name="description" content="On this page you will find info of top 5 indian youtubers of different channel category">
+{% endblock %}
+
+
+{% block css %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category-list.css' %}">
+ {% if channel_category.slug == "auto-and-vehicle" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category/auto-vehicle.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "beauty-and-fashion" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category/beauty.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "comedy" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category/comedy.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "entertainment" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category/entertainment.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "family-entertainment" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category/family.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "food" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category/food.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "gaming" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category/gaming.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "kids" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category/kids.css' %}">
+    {% endif %}
+    {% if channel_category.slug == "music-and-dance" %}
+        <link rel="stylesheet" type="text/css" href="{% static 'top_five/css/category/music.css' %}">
+    {% endif %}
+{% endblock %}
+{% block content %}
+<div class="main">
+<!--breadcrumbs-->
+    <ul class="breadcrumb">
+        <li><a href="{% url 'homepage' %}">Home</a></li>
+        <li><a href="{% url 'top-five-index' %}">Top 5</a></li>
+        <li>Youtuber</li>
+    </ul>
+<!--end breadcrumbs-->
+      <!--category title-->
+    <div class="category-title">
+        <h1 class="m-5">Top 5 Youtubers based on their Categories</h1>
+    </div>
+<!-- end category title-->
+
+<!--category list-->
+    <div class="category-list">
+         {% for channel_category in youtuber_category_list %}
+            <div class="category-card">
+
+                <a href="{% url 'top-five-youtuber-subscat' channel_category.slug %}">
+                    {% if channel_category.image_png %}
+                        <img src=" {{channel_category.image_png.url}}" alt="{{channel_category.name}}">
+                    {% endif %}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+<!--end category list-->
+</div>
+{% endblock %}
