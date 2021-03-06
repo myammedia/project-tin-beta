@@ -17,6 +17,14 @@ def channel_category_view(request):
     return render(request, template, context)
 
 
+def channel_subscat_view(request, slug):
+    channel_category = get_object_or_404(Channel, slug=slug)
+    context = {'channel_category': channel_category}
+    template = "top_five/top-five-channel-subscat.html"
+
+    return render(request, template, context)
+
+
 def youtuber_category_view(request):
     youtuber_category_list = Channel.objects.order_by('name')
     context = {'youtuber_category_list': youtuber_category_list}
