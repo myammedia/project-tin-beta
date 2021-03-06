@@ -1,0 +1,24 @@
+{% extends "top_five/base.html" %}
+{% block title %} Top 5 {% endblock %}
+
+{% block content %}
+<div class="main">
+<!--breadcrumbs-->
+    <ul class="breadcrumb">
+        <li><a href="{% url 'homepage' %}">Home</a></li>
+        <li>Top 5 </li>
+    </ul>
+<!--end breadcrumbs-->
+<!--channel option-->
+    <div class="channel-option">
+        <a href="{% url 'top-five-channel-category' %}">
+            <div><h1>Channel</h1></div>
+        </a>
+
+        <a href="{% url 'top-five-youtuber-category' %}">
+            <div><h1>Youtuber</h1></div>
+        </a>
+    </div>
+<!--end channel option-->
+</div>
+{% endblock %}
