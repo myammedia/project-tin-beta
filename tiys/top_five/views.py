@@ -9,6 +9,14 @@ def index(request):
     return render(request, template)
 
 
+def channel_category_view(request):
+    channel_category_list = Channel.objects.order_by('name')
+    context = {'channel_category_list': channel_category_list}
+    template = 'top_five/top-five-channel-category.html'
+
+    return render(request, template, context)
+
+
 def youtuber_category_view(request):
     youtuber_category_list = Channel.objects.order_by('name')
     context = {'youtuber_category_list': youtuber_category_list}
