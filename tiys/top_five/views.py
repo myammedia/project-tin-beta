@@ -42,6 +42,18 @@ def top_five_channel_view(request, channel_category, subscriber_category):
     return render(request, template, context)
 
 
+def top_five_archive_view(request, channel_category, subscriber_category):
+    channel_category = get_object_or_404(Channel, slug=channel_category)
+    subscriber_category = Subscriber.objects.get(slug=subscriber_category)
+    top_five_archive_list = Channels.objects.filter(channel_category=channel_category,
+                                                    subscriber_category=subscriber_category)
+    context = {'channel_category': channel_category, 'subscriber_category': subscriber_category,
+               'top_five_archive_list': top_five_archive_list}
+    template = 'top_five/top-five-channel-archive.html'
+
+    return render(request, template, context)
+
+
 def youtuber_category_view(request):
     youtuber_category_list = Channel.objects.order_by('name')
     context = {'youtuber_category_list': youtuber_category_list}
