@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from category.models import Channel, Subscriber
+from .models import Channels, Youtubers
 
 
 def index(request):
@@ -20,5 +21,22 @@ def youtuber_subscat_view(request, slug):
     channel_category = get_object_or_404(Channel, slug=slug)
     context = {'channel_category': channel_category}
     template = "top_five/top-five-youtuber-subscat.html"
+
+    return render(request, template, context)
+
+
+def top_five_youtuber_view(request, channel_category, subscriber_category):
+    channel_category = get_object_or_404(Channel, slug=channel_category)
+    subscriber_category = Subscriber.objects.get(slug=subscriber_category)
+    top_five_subs = Youtubers.objects.filter(channel_category=channel_category,
+                                             subscriber_category=subscriber_category, type='Most Subscribers').last()
+    top_five_videos = Youtubers.objects.filter(channel_category=channel_category,
+                                               subscriber_category=subscriber_category, type='Most Videos').last()
+    top_five_views = Youtubers.objects.filter(channel_category=channel_category,
+                                              subscriber_category=subscriber_category, type='Most Views').last()
+    context = {'channel_category': channel_category, 'subscriber_category': subscriber_category,
+               'top_five_subs': top_five_subs,
+               'top_five_videos': top_five_videos, 'top_five_views': top_five_views}
+    template = 'top_five/top-five-youtuber-list.html'
 
     return render(request, template, context)
