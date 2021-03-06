@@ -38,9 +38,9 @@
      <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
             <li><a href="{% url 'top-five-index' %}">Top 5</a></li>
-            <li><a href="{% url 'top-five-channel-category' %}">Youtuber</a></li>
-            <li><a href="{% url 'top-five-channel-subscat' channel_category.slug %}">{{channel_category.name}}</a></li>
-            <li><a href="{% url 'top-five-channel-subscat' channel_category.slug subscriber_category.slug%}">{{subscriber_category.name}}</a></li>
+            <li><a href="{% url 'top-five-youtuber-category' %}">Youtuber</a></li>
+            <li><a href="{% url 'top-five-youtuber-subscat' channel_category.slug %}">{{channel_category.name}}</a></li>
+            <li><a href="{% url 'top-five-youtuber-subscat' channel_category.slug subscriber_category.slug%}">{{subscriber_category.name}}</a></li>
             <li>Archives</li>
         </ul>
 <!--end breadcrumbs-->
