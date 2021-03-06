@@ -7,5 +7,6 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('youtuber/', include('youtuber.urls')),
     path('channel/', include('channel.urls')),
+    path('top-5/', include('top_five.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
