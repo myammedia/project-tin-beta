@@ -8,6 +8,8 @@ urlpatterns = [
     path('channel/<slug:slug>/', views.channel_subscat_view, name="top-five-channel-subscat"),
     path('channel/<slug:channel_category>/<slug:subscriber_category>/', views.top_five_channel_view,
          name="top-five-channel-list"),
+    path('channel/<slug:channel_category>/<slug:subscriber_category>/archives', views.top_five_archive_view,
+         name="top-five-channel-archives"),
     path('youtuber/', views.youtuber_category_view, name="top-five-youtuber-category"),
     path('youtuber/<slug:slug>/', views.youtuber_subscat_view, name="top-five-youtuber-subscat"),
     path('youtuber/<slug:channel_category>/<slug:subscriber_category>/', views.top_five_youtuber_view,
