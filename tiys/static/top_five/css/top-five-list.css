@@ -1,0 +1,38 @@
+.category-title{
+font-family: 'Goldman', cursive;
+text-align: center;
+margin: 5% 0%;
+}
+.top-five{
+display: flex;
+margin: 10% 2%;;
+justify-content: space-around;
+text-align: center;
+font-family: 'Goldman', cursive;
+
+}
+.top-five h1{
+margin: 10% 0%;}
+
+.top-five a{
+text-decoration: none;}
+
+.top-five-items{
+padding: 1%;
+margin: 10% 0%;
+border: 1px solid white;
+border-radius: 10px;
+}
+.top-five-subs{
+border: 2px solid white;
+padding: 5%;
+}
+
+.top-five-videos{
+border: 2px solid white;
+padding: 5%;
+}
+.top-five-views{
+border: 2px solid white;
+padding: 5%;
+}

@@ -1,0 +1,86 @@
+body{
+    background: url('/static/category/images/Auto-&-Vehicle-BG.png');
+        background-size: 120%;
+				animation: animate 8s infinite;
+				color: white;
+}
+@keyframes animate{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+.navbar{
+    background: linear-gradient(90deg, lightsteelblue, steelblue);
+}
+
+ul.breadcrumb {
+    background-color: transparent;
+  }
+  ul.breadcrumb li {
+    color: yellow;
+  }
+
+ul.breadcrumb li+li:before {
+    color: white;
+  }
+  ul.breadcrumb li a {
+    color: white;
+  }
+    ul.breadcrumb li a:hover {
+    color: #0275d8;
+    text-decoration: none;
+  }
+
+.youtuber-profile-left img{
+  animation: animate-img 20s infinite;
+}
+@keyframes animate-img{
+	0%{
+		transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+	100%{
+		transform: rotate(0deg);
+	}
+}
+
+.youtuber-profile-right-data h6{
+color: orange;
+}
+.youtuber-profile-other-left{
+   background-color: lightsteelblue;
+}
+
+.youtuber-profile-other-right{
+    background-color: steelblue;
+}
+
+
+.subfooter-left{
+   background-color: lightsteelblue;
+}
+
+
+.subfooter-right{
+    background-color: steelblue;
+ }
+.subfooter-right a{
+    color: white;
+}
+.subfooter-right a:hover{
+    text-decoration: underline;
+}
+.footer-copyright{
+color: black;
+background: linear-gradient(90deg, lightsteelblue, steelblue);
+}
+
