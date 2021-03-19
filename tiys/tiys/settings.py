@@ -4,19 +4,17 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Production setting - run py manage.py collectstatic
-
-# SECRET_KEY = os.environ.get('SECRET_KEY', 'n#vj7@y7mctvmqbc$@uu#vf2q=-p8!ege9#7zu&gbr(68f@fz4')
-#
-# DEBUG = False
-#
-# ALLOWED_HOSTS = ['127.0.0.1']
-
 SECRET_KEY = 'n#vj7@y7mctvmqbc$@uu#vf2q=-p8!ege9#7zu&gbr(68f@fz4'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['.tiys.in', '65.1.16.143']
+
+
+ADMINS = [('Admin', 'admin@tiys.in')]
+
+MANAGERS = ADMINS
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -62,25 +60,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tiys.wsgi.application'
 
-if 'RDS_DB_NAME' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
