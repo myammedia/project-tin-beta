@@ -1,1 +1,1 @@
-# ptin-beta
+# project-tin-beta
