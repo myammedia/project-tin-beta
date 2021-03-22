@@ -16,6 +16,7 @@ class Profile(models.Model):
     twitter_url = models.URLField(max_length=200, blank=True)
     facebook_url = models.URLField(max_length=200, blank=True)
     website_url = models.URLField(max_length=200, blank=True)
+    pub_date = models.DateField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.channel_name
