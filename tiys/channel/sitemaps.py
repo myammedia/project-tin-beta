@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from channel.models import ChannelProfile
+from . models import ChannelProfile
 
 
 class ChannelProfileSitemap(Sitemap):
@@ -11,3 +11,6 @@ class ChannelProfileSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.pub_date
+
+    def location(self, obj):
+        return '/channel/%s' % obj.slug
