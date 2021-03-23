@@ -5,7 +5,7 @@ from category.models import Channel, Subscriber
 
 class ChannelProfile(models.Model):
     channel_name = models.CharField(max_length=150, unique=True)
-    slug = models.SlugField(max_length=100, null=True,  unique=True)
+    slug = models.SlugField(max_length=100, null=True, unique=True)
     channel_owner = models.CharField(max_length=100, blank=True)
     image = models.ImageField(blank=True, upload_to='images/channel')
     channel_category = models.ForeignKey(Channel, on_delete=models.CASCADE)
@@ -29,4 +29,3 @@ class Subsdata(models.Model):
     total_videos = models.IntegerField()
     total_views = models.IntegerField()
     update_date = models.DateField(auto_now_add=True, blank=True)
-
