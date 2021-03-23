@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from youtuber.models import Profile
+from . models import Profile
 
 
 class YoutuberProfileSitemap(Sitemap):
@@ -11,3 +11,6 @@ class YoutuberProfileSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.pub_date
+
+    def location(self, obj):
+        return '/youtuber/%s' % obj.slug
