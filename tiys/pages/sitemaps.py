@@ -8,8 +8,7 @@ class PagesSitemap(sitemaps.Sitemap):
 
     def items(self):
         return ['homepage', 'about-page', 'contact-page', 'submit-page', 'terms-page', 'privacy-page', 'faq-page',
-                'channel-index', 'youtuber-index', 'top-five-index', 'top-five-channel-category',
-                'top-five-youtuber-category']
+                'channel-index', 'youtuber-index']
 
     def location(self, item):
         return reverse(item)
