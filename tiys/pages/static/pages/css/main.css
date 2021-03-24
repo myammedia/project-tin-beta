@@ -94,6 +94,29 @@ ul.breadcrumb {
     text-decoration: underline;
   }
 
+  .submit{
+background: linear-gradient(90deg, #7882F3, #5352EE);
+padding: 3% 0%;
+margin: 5% 0%;
+text-align: center;
+color: white;
+}
+
+.submit a {
+  background-color: #7882F3 10%;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+  border: 2px solid #7882F3;
+  border-radius: 50px;
+}
+
+.submit a:hover {
+  background-color: #7882F3;
+    box-shadow: 1px 1px 30px #7882F3;
+   border: 2px solid #5352EE;
+}
+
     .subfooter{
     display: flex;
     flex-direction: row;
@@ -187,6 +210,11 @@ ul.breadcrumb {
         margin: 15px;
         color: white;
     }
+
+    .submit{
+        padding: 10%;
+    }
+
     .subfooter{flex-direction: column;}
     .subfooter-left-data{padding-bottom: 5%;}
     .subfooter-left{padding-bottom: 15%;}
@@ -206,8 +234,10 @@ ul.breadcrumb {
   }
   .nav-social{display: flex; margin: 5px auto;}
 
+  .submit{
+        padding: 10%;
+    }
 
-  }
   .subfooter-left{flex: 50%;}
   .subfooter-right{flex: 50%;}
 }
