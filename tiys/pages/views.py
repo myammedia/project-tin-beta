@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from category.models import Channel, Subscriber
+from channel.models import ChannelProfile
+from youtuber.models import Profile
 from .models import Faq
 from .forms import SubmitForm
 
@@ -7,7 +9,11 @@ from .forms import SubmitForm
 def index(request):
     channel_category_count = Channel.objects.count()
     subscriber_category_count = Subscriber.objects.count()
-    context = {'channel_category_count': channel_category_count, 'subscriber_category_count': subscriber_category_count}
+    youtuber_count = Profile.objects.count()
+    channel_count = ChannelProfile.objects.count()
+    context = {'channel_category_count': channel_category_count, 'subscriber_category_count': subscriber_category_count,
+               'youtuber_count': youtuber_count, 'channel_count': channel_count, }
+
     template = 'pages/home.html'
 
     return render(request, template, context)
