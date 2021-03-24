@@ -1,25 +1,19 @@
 from django.contrib.sitemaps import Sitemap
-from top_five.models import Channels, Youtubers
+from django.urls import reverse
 
 
-class TopChannelSitemap(Sitemap):
-    changefreq = "weekly"
+class TopFiveSitemap(Sitemap):
     priority = 0.5
+    changefreq = 'weekly'
 
     def items(self):
-        return Channels.objects.all()
+        return ['top-five-index', 'top-five-channel-category',
+                'top-five-youtuber-category']
 
-    def lastmod(self, obj):
-        return obj.pub_date
+    def location(self, item):
+        return reverse(item)
 
 
-class TopYoutuberSitemap(Sitemap):
-    changefreq = "weekly"
-    priority = 0.5
 
-    def items(self):
-        return Youtubers.objects.all()
 
-    def lastmod(self, obj):
-        return obj.pub_date
 
