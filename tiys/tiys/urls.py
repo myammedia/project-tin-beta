@@ -6,15 +6,14 @@ from django.contrib.sitemaps.views import sitemap
 from pages.sitemaps import PagesSitemap
 from channel.sitemaps import ChannelProfileSitemap
 from youtuber.sitemaps import YoutuberProfileSitemap
-from top_five.sitemaps import TopChannelSitemap, TopYoutuberSitemap
+from top_five.sitemaps import TopFiveSitemap
 
 
 sitemaps = {
     'pages': PagesSitemap,
     'channel': ChannelProfileSitemap,
     'youtuber': YoutuberProfileSitemap,
-    'top_channel': TopChannelSitemap,
-    'top_youtuber': TopYoutuberSitemap,
+    'top_five': TopFiveSitemap,
 }
 
 urlpatterns = [
