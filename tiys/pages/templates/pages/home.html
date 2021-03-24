@@ -42,7 +42,7 @@
             This also created an opportunity for some people among the audience to showcase their knowledge, creativity and talent with others and thus making them a content creator.
             Through recent years many creators have established themselves on YouTube by providing amazing content.</p>
 
-            <a href="">Know More....</a>
+            <a href="{% url 'about-page' %}">Know More....</a>
         </div>
     </div>
 
@@ -71,10 +71,10 @@
         </div>
         <div class="profile_type">
             <div class="profile_type_yt">
-                <a href="">Youtuber's</a>
+                <a href="{% url 'youtuber-index' %}">Youtuber's</a>
             </div>
             <div class="profile_type_ch">
-                <a href="">Channel's</a>
+                <a href="{% url 'channel-index' %}">Channel's</a>
             </div>
         </div>
     </div>
@@ -86,14 +86,14 @@
         </div>
         <div class="top-right">
             <h1>Youtubers</h1>
-            <a href="">Checkout!</a>
+            <a href="{% url 'top-five-index' %}">Checkout!</a>
         </div>
     </div>
 
     <div class="submit">
         <h1>Are you an Indian Youtubers or owns a Channel.??</h1>
         <h5>Submit your details now and get a webpage on our website</h5>
-        <a href="">Submit Now</a>
+        <a href="{% url 'submit-page' %}">Submit Now</a>
     </div>
 
     {% include 'footer.html' %}
