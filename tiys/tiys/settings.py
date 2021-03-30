@@ -8,13 +8,11 @@ SECRET_KEY = 'n#vj7@y7mctvmqbc$@uu#vf2q=-p8!ege9#7zu&gbr(68f@fz4'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['65.2.13.32', '.tiys.in']
 
 ADMINS = [('Admin', 'admin@tiys.in')]
 
 MANAGERS = ADMINS
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -106,6 +104,14 @@ USE_TZ = True
 # CSRF_COOKIE_SECURE = True
 #
 # SESSION_COOKIE_SECURE = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_USE_TLS = True
+
+EMAIL_PORT = 587
 
 STATIC_URL = '/static/'
 

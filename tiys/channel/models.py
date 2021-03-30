@@ -1,13 +1,16 @@
 from django.db import models
-
 from category.models import Channel, Subscriber
+from django.core.files.storage import FileSystemStorage
+
+
+fs = FileSystemStorage(location='/media/images/channel')
 
 
 class ChannelProfile(models.Model):
     channel_name = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=100, null=True, unique=True)
     channel_owner = models.CharField(max_length=100, blank=True)
-    image = models.ImageField(blank=True, upload_to='images/channel')
+    image = models.ImageField(blank=True, storage=fs)
     channel_category = models.ForeignKey(Channel, on_delete=models.CASCADE)
     subscriber_category = models.ForeignKey(Subscriber, on_delete=models.CASCADE)
     join_date = models.DateField()
