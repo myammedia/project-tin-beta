@@ -4,7 +4,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'n#vj7@y7mctvmqbc$@uu#vf2q=-p8!ege9#7zu&gbr(68f@fz4'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True
 
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'youtuber.apps.YoutuberConfig',
     'channel.apps.ChannelConfig',
     'top_five.apps.TopFiveConfig',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -93,17 +94,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-# SECURE_HSTS_SECONDS = 3600
-#
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-#
-# SECURE_HSTS_PRELOAD = True
-#
-# SECURE_SSL_REDIRECT = True
-#
-# CSRF_COOKIE_SECURE = True
-#
-# SESSION_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 3600
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+SECURE_HSTS_PRELOAD = True
+
+SECURE_SSL_REDIRECT = True
+
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -113,10 +114,30 @@ EMAIL_USE_TLS = True
 
 EMAIL_PORT = 587
 
-STATIC_URL = '/static/'
+SERVER_EMAIL = os.environ['SERVER_EMAIL']
 
-STATIC_ROOT = BASE_DIR / 'static'
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
-MEDIA_URL = '/media/'
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
-MEDIA_ROOT = BASE_DIR / 'media'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+
+
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+AWS_LOCATION = 'static'
+
+STATICFILES_STORAGE = 'tiys.storage_backends.StaticStorage'
+
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+
+AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
+DEFAULT_FILE_STORAGE = 'tiys.storage_backends.PublicMediaStorage'
+
+AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
+PRIVATE_FILE_STORAGE = 'tiys.storage_backends.PrivateMediaStorage'
+
