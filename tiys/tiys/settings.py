@@ -4,9 +4,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = ''
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['65.2.13.32', '.tiys.in']
 
@@ -114,17 +114,16 @@ EMAIL_USE_TLS = True
 
 EMAIL_PORT = 587
 
-SERVER_EMAIL = os.environ['SERVER_EMAIL']
+SERVER_EMAIL = ''
 
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+AWS_ACCESS_KEY_ID = ''
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = ''
 
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-
-AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_STORAGE_BUCKET_NAME = ''
 
 
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
