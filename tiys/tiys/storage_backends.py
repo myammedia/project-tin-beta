@@ -7,14 +7,7 @@ class StaticStorage(S3Boto3Storage):
     default_acl = 'public-read'
 
 
-class PublicMediaStorage(S3Boto3Storage):
-    location = settings.AWS_PRIVATE_MEDIA_LOCATION
+class MediaStorage(S3Boto3Storage):
+    location = settings.AWS_MEDIA_LOCATION
     default_acl = 'public-read'
     file_overwrite = False
-
-
-class PrivateMediaStorage(S3Boto3Storage):
-    location = settings.AWS_PRIVATE_MEDIA_LOCATION
-    default_acl = 'private'
-    file_overwrite = False
-    custom_domain = False
