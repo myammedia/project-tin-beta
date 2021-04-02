@@ -1,5 +1,5 @@
 from django.db import models
-from category.models import Channel, Subscriber
+from tiys.category.models import Channel, Subscriber
 
 
 class Channels(models.Model):
