@@ -1,12 +1,13 @@
 from django.db import models
-from category.models import Channel, Subscriber
+from tiys.category.models import Channel, Subscriber
+from tiys.tiys.storage_backends import MediaStorage
 
 
 class Profile(models.Model):
     channel_name = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=100, null=True,  unique=True)
     channel_owner = models.CharField(max_length=100, blank=True)
-    image = models.ImageField(blank=True, upload_to='/images/youtuber')
+    image = models.ImageField(blank=True, storage=MediaStorage())
     channel_category = models.ForeignKey(Channel, on_delete=models.CASCADE)
     subscriber_category = models.ForeignKey(Subscriber, on_delete=models.CASCADE)
     join_date = models.DateField()
