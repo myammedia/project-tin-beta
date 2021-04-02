@@ -1,5 +1,5 @@
 from django.db import models
-from tiys.tiys.storage_backends import MediaStorage
+from tiys.storage_backends import MediaStorage
 
 
 class Channel(models.Model):

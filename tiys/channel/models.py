@@ -1,6 +1,6 @@
 from django.db import models
-from tiys.category.models import Channel, Subscriber
-from tiys.tiys.storage_backends import MediaStorage
+from category.models import Channel, Subscriber
+from tiys.storage_backends import MediaStorage
 
 
 class ChannelProfile(models.Model):
