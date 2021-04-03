@@ -155,9 +155,11 @@
                   <a href="{% url 'youtuber-profile' channel_category.slug subscriber_category.slug youtuber.slug %}">
                       <div class="youtuber-card">
                       {% if youtuber.image %}
-                         <img src="{{ youtuber.image.url }}" alt="{{youtuber.slug}}">
-                       {% else %}
-                          <img src="{% static 'youtuber/images/1482937747.png' %}" alt="">
+                         <img src="{{ youtuber.image.url }}" alt="{{youtuber.name}}">
+                      {% elif  channel.image_url %}
+                         <img src="{{ youtuber.image_url }}" alt="{{youtuber.name}}">
+                      {% else %}
+                          <img src="{% static 'youtuber/images/1482937747.png' %}" alt="Dummy Image">
                       {% endif %}
                      <h1>{{youtuber.channel_name}}</h1>
                            </div>
