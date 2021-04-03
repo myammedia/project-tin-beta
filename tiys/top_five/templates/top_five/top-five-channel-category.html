@@ -62,6 +62,9 @@
                     {% if channel_category.image_png %}
                         <img src=" {{channel_category.image_png.url}}" alt="{{channel_category.name}}">
                     {% endif %}
+                    {% if channel_category.image_png_url %}
+                        <img src=" {{channel_category.image_png_url}}" alt="{{channel_category.name}}">
+                    {% endif %}
                 </a>
             </div>
         {% endfor %}
