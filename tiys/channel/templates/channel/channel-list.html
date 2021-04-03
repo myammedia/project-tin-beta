@@ -151,13 +151,15 @@
 
                   <a href="{% url 'channel-profile' channel_category.slug subscriber_category.slug channel.slug %}">
                       <div class="channel-card">
-                      {% if channel.image %}
-                         <img src="{{ channel.image.url }}" alt="{{channel.slug}}">
-                       {% else %}
-                          <img src="{% static 'channel/images/1482937747.png' %}" alt="">
-                      {% endif %}
-                     <h1>{{channel.channel_name}}</h1>
-                           </div>
+                              {% if channel.image %}
+                                 <img src="{{ channel.image.url }}" alt="{{channel.channel_name}}">
+                              {% elif  channel.image_url %}
+                                  <img src="{{ channel.image_url }}" alt="{{channel.channel_name}}">
+                              {% else %}
+                                  <img src="{% static 'channel/images/1482937747.png' %}" alt="Dummy Image">
+                              {% endif %}
+                             <h1>{{channel.channel_name}}</h1>
+                       </div>
                   </a>
 
 
