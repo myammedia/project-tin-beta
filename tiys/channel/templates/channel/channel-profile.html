@@ -77,7 +77,10 @@
             <!-- channel profile right image-->
                     <div class="channel-profile-right-image">
                         {% if channel.image %}
-                            <img src="{{channel.image.url}}" alt="">
+                            <img src="{{channel.image.url}}" alt="{{channel.channel_name}}">
+                        {% endif %}
+                        {% if channel.image_url %}
+                            <img src="{{channel.image_url}}" alt="{{channel.channel_name}}">
                         {% endif %}
 
                     </div>
@@ -91,11 +94,11 @@
                  <!--channel profile social-->
                     <div class="channel-profile-social">
 
-                                    <a href="" class="channel-yt-btn"><i class="fab fa-youtube"></i></a>
-                                    <a href="" class="channel-ig-btn"><i class="fab fa-instagram"></i></a>
-                                    <a href="" class="channel-tw-btn"><i class="fab fa-twitter"></i></a>
-                                    <a href="" class="channel-fb-btn"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="" class="channel-wb-btn"><i class="fas fa-globe-asia"></i></a>
+                                    <a href="{{channel.youtube_url}}" class="channel-yt-btn"><i class="fab fa-youtube"></i></a>
+                                    <a href="{{channel.instagram_url}}" class="channel-ig-btn"><i class="fab fa-instagram"></i></a>
+                                    <a href="{{channel.twitter_url}}" class="channel-tw-btn"><i class="fab fa-twitter"></i></a>
+                                    <a href="{{channel.facebook_url}}" class="channel-fb-btn"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="{{channel.website_url}}" class="channel-wb-btn"><i class="fas fa-globe-asia"></i></a>
 
                     </div>
                 <!-- end channel profile social-->
@@ -110,16 +113,21 @@
 <div class="channel-profile-other">
     <!--channel profile other left-->
     <div class="channel-profile-other-left">
-        <h1>ADV</h1>
+
     </div>
     <!--end channel profile other left-->
     <!--channel profile other right-->
     <div class="channel-profile-other-right">
         <div class="channel-profile-other-data">
             <div>
-                <h3>Channel Owner Name</h3>
-                <h5>Date of Joining - </h5>
-                <h5>1st video upload date - </h5>
+                <h3>Channel Owner Name -
+                    {% if channel.channel_owner %}
+                    {{channel.channel_owner}}
+                    {% endif %}
+                    ___________
+                </h3>
+                <h5>Date of Joining - {{channel.join_date}}</h5>
+                <h5>1st video upload date - {{channel.first_upload}}</h5>
                 <h5></h5>
             </div>
 
