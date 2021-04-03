@@ -31,6 +31,9 @@
          {% for category in youtuber_category_list %}
             <div class="category-card">
                     <a href="{% url 'youtuber-subscat-list' category.slug %}">
+                    {% if category.image_png_url %}
+                        <img src=" {{category.image_png_url}}" alt="{{category.name}}">
+                    {% endif %}
                     {% if category.image_png %}
                         <img src=" {{category.image_png.url}}" alt="{{category.name}}">
                     {% endif %}
