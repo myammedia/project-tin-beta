@@ -8,6 +8,7 @@ class Profile(models.Model):
     slug = models.SlugField(max_length=100, null=True,  unique=True)
     channel_owner = models.CharField(max_length=100, blank=True)
     image = models.ImageField(blank=True, storage=MediaStorage())
+    image_url = models.URLField(max_length=200, blank=True)
     channel_category = models.ForeignKey(Channel, on_delete=models.CASCADE)
     subscriber_category = models.ForeignKey(Subscriber, on_delete=models.CASCADE)
     join_date = models.DateField()
